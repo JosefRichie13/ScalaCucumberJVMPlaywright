@@ -1,5 +1,6 @@
 package scalacucumberplaywright
 
+import java.util
 import scala.jdk.CollectionConverters._
 
 class Driver {
@@ -24,8 +25,8 @@ class Driver {
     webDriver.page.locator(element).nth(index).textContent()
   }
 
-  def getAllTextFromAListOfElements(element: String): String = {
-    webDriver.page.locator(element).textContent()
+  def getAllTextFromAListOfElements(element: String): util.List[String] = {
+    webDriver.page.locator(element).allTextContents()
   }
 
   def elementVisibleOrNot(element: String): Boolean ={
