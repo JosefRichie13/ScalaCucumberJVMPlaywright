@@ -1,7 +1,6 @@
 package scalacucumberplaywright
 
 import java.util
-import scala.jdk.CollectionConverters._
 
 class Driver {
 
@@ -37,4 +36,14 @@ class Driver {
     webDriver.page.locator(element).selectOption(selectOptionInText)
   }
 
+  def getTheCurrentURL: String ={
+    webDriver.page.url()
+  }
+
+  def getURLFromANewTab(toBeExecuted: Unit): String = {
+    webDriver.page.waitForPopup(() =>
+    toBeExecuted
+    ).url()
+  }
+  webDriver.page.bringToFront()
 }
